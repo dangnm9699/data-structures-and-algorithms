@@ -1,9 +1,3 @@
-class Data:
-    def __init__(self, id, name):
-        self.id = id
-        self.name = name
-
-
 class Node:
     def __init__(self, data=None):
         self.data = data
@@ -34,18 +28,18 @@ class SinglyLinkedList:
 
     def print_list(self):
         curr = self.head
-        print('Head')
+        print('Head', end='')
         while (curr):
             print(
-                '-> [id = {} name = {}]'.format(curr.data.id, curr.data.name))
+                '-> [ {} ]'.format(curr.data), end='')
             curr = curr.next
         print('-> Tail')
 
 
 if __name__ == '__main__':
     sll = SinglyLinkedList()
-    sll.add_head(Data(1, 'dangnm'))
-    sll.add_head(Data(2, 'dongnt'))
-    sll.add_head(Data(3, 'quanvd'))
+    sll.add_head(1)
+    sll.add_head(2)
+    sll.add_head(3)
 
     sll.print_list()
