@@ -9,6 +9,7 @@ class Node:
 
 class SinglyLinkedList:
     def __init__(self, list: List[any] = None, head=True):
+        self.length = 0
         self.head = None
         if list != None and len(list) > 0:
             if head:
@@ -19,23 +20,39 @@ class SinglyLinkedList:
                     self._add_tail(e)
 
     def append(self, data=None, head=True):
-        if data == None:
-            raise Exception("NoneType cannot be appended")
         if head:
             self._add_head(data)
         else:
             self._add_tail(data)
 
     def remove_head(self):
-        self.head = self.head.next
+        if self.length == 0:
+            raise AssertionError("Cannot remove from empty list")
+        if self.length == 1:
+            self.head = None
+            self.length -= 1
+        else:
+            self.head = self.head.next
+            self.length -= 1
 
     def remove_tail(self):
-        curr = self.head
-        while(curr.next.next):
-            curr = curr.next
-        curr.next = None
+        if self.length == 0:
+            raise AssertionError("Cannot remove from empty list")
+        if self.length == 1:
+            self.head = None
+            self.length -= 1
+        else:
+            curr = self.head
+            while(curr.next.next):
+                curr = curr.next
+            curr.next = None
+            self.length -= 1
 
     def reverse(self):
+        if self.length == 0:
+            raise AssertionError("Cannot reverse empty list")
+        if self.length == 1:
+            return 
         curr = self.head
         prev = None
         next = None
@@ -50,6 +67,7 @@ class SinglyLinkedList:
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+        self.length += 1
 
     def _add_tail(self, data):
         if self.head == None:
@@ -59,6 +77,7 @@ class SinglyLinkedList:
             while (curr.next):
                 curr = curr.next
             curr.next = Node(data)
+        self.length += 1
 
     def print(self):
         curr = self.head
