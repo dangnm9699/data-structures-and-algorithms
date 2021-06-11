@@ -6,10 +6,13 @@
 ## 2 Algorithms
 
 ### 2.1 Sort
-- Bubble sort
-- Heap sort
-- Insertion sort
-- Merge sort
-- Quick sort
-- Selection sort
+| Method                 | Supported          | 
+|------------------------|--------------------|
+| Bubble sort            | :white_check_mark: |
+| Heap sort              | :x: |
+| Insertion sort         | :x: |
+| Merge sort             | :x: |
+| Quick sort             | :x: |
+| Selection sort         | :white_check_mark: |
+
 ### 2.2 Search
