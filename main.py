@@ -2,6 +2,6 @@ from DataSructures.LinkedList import SinglyLinkedList
 from Algorithms.sort import *
 
 if __name__ == '__main__':
-    arr = [1, 8, 3, 6, 4, 7]
-    arr = selection_sort(arr)
+    arr = [38, 27, 43, 3, 9, 82, 10]
+    arr = merge_sort(arr)
     print(arr)

@@ -1,18 +1,16 @@
 # Data Structures and Algorithms
 
-## 1 Data structures
+## Data structures
+### Single linked list
+- [x] Append
+- [x] Remove head
+- [x] Remove tail
+- [x] Reverse
 
+## Algorithms
+### Sort
+- [x] Bubble Sort
+- [x] Selection Sort
+- [x] Merge Sort
 
-## 2 Algorithms
-
-### 2.1 Sort
-| Method                 | Supported          | 
-|------------------------|--------------------|
-| Bubble sort            | :white_check_mark: |
-| Heap sort              | :x: |
-| Insertion sort         | :x: |
-| Merge sort             | :x: |
-| Quick sort             | :x: |
-| Selection sort         | :white_check_mark: |
-
-### 2.2 Search
+### Search
