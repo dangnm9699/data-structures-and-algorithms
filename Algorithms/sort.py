@@ -1,16 +1,19 @@
 from typing import List
 
 
-def bubble_sort(arr: List[int]):
-    """
-    Bubble sort for an integer array
-    :param arr: array of integer elements
-    :return: sorted array order by ascending
-    """
+def selection_sort(arr: List[int]):
     n = len(arr)
-    if n < 2:
-        return arr
     for i in range(n - 1):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[min_idx] > arr[j]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+
+def bubble_sort(arr: List[int]):
+    n = len(arr)
+    for i in range(n):
         swapped = False
         for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
@@ -18,34 +21,20 @@ def bubble_sort(arr: List[int]):
                 swapped = True
         if not swapped:
             break
-    return arr
 
 
-def selection_sort(arr: List[int]):
-    """
-    Selection sort for an integer array
-    :param arr: array of integer elements
-    :return: sorted array order by ascending
-    """
+def insertion_sort(arr: List[int]):
     n = len(arr)
-    if n < 2:
-        return arr
     for i in range(1, n):
         key = arr[i]
         j = i - 1
-        while j >= 0 and arr[j] > key:
+        while j >= 0 and key < arr[j]:
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = key
-    return arr
 
 
 def merge_sort(arr: List[int]):
-    """
-    Merge sort for an integer array
-    :param arr: array of integer elements
-    :return: sorted array order by ascending
-    """
     n = len(arr)
     if n > 1:
         # Finding middle index of array
@@ -59,7 +48,6 @@ def merge_sort(arr: List[int]):
         merge_sort(_high)
         # Merge 2 halves into 1
         _merge(arr, _low, _high)
-    return arr
 
 
 def _merge(arr: List[int], _low: List[int], _high: List[int]):
@@ -86,4 +74,11 @@ def _merge(arr: List[int], _low: List[int], _high: List[int]):
         arr[k] = _high[j]
         j += 1
         k += 1
+
+
+def quick_sort(arr: List[int]):
+    pass
+
+
+def heap_sort(arr: List[int]):
     pass
