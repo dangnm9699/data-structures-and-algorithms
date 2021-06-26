@@ -76,8 +76,40 @@ def _merge(arr: List[int], _low: List[int], _high: List[int]):
         k += 1
 
 
-def quick_sort(arr: List[int]):
-    pass
+def quick_sort(arr: List[int], lo=None, hi=None):
+    if lo is None:
+        lo = 0
+    if hi is None:
+        hi = len(arr) - 1
+    if lo < hi:
+        pi = _partition_lomuto(arr, lo, hi)
+        quick_sort(arr, lo, pi - 1)
+        quick_sort(arr, pi + 1, hi)
+
+
+def _partition_lomuto(arr: List[int], lo: int, hi: int):
+    pivot = arr[hi]
+    i = lo
+    for j in range(lo, hi):
+        if arr[j] < pivot:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+    arr[i], arr[hi] = arr[hi], arr[i]
+    return i
+
+
+def _partition_hoare(arr: List[int], lo: int, hi: int):
+    pivot = arr[(lo + hi) // 2]
+    i = lo
+    j = hi
+    while True:
+        while arr[i] < pivot:
+            i += 1
+        while arr[j] > pivot:
+            j -= 1
+        if i >= j:
+            return j
+        arr[i], arr[j] = arr[j], arr[i]
 
 
 def heap_sort(arr: List[int]):
